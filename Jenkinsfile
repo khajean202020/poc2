@@ -118,7 +118,7 @@ pipeline {
     timestamps()
   }
   tools {
-    allure 'Allure-2.14'
+   
   }
   agent {
     label 'jdk-17'

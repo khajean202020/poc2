@@ -117,11 +117,9 @@ pipeline {
   options {
     timestamps()
   }
-  tools {
 
-  }
   agent {
-    label 'jdk-17'
+    label 'jdk-11'
   }
   stages {
     stage('Init') {
@@ -218,5 +216,5 @@ pipeline {
       }
     }
   }
- 
+
 }

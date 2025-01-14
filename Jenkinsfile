@@ -71,4 +71,17 @@ agent any
     }
   }
 
+post {
+        always {
+            publishHTML (target: [
+                  allowMissing: false,
+                  alwaysLinkToLastBuild: false,
+                  keepAll: true,
+                  reportDir: 'reports',
+                  reportFiles: '*.html',
+                  reportName: "RCov Report"
+                ])
+        }
+    }
+
 }

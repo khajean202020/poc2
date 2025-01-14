@@ -114,13 +114,12 @@ properties([parameters([
 ])])
 
 pipeline {
+agent any
   options {
     timestamps()
   }
 
-  agent {
-    label 'jdk-11'
-  }
+ 
   stages {
     stage('Init') {
         steps {

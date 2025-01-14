@@ -76,7 +76,7 @@ post {
             publishHTML (target: [
                   allowMissing: false,
                   alwaysLinkToLastBuild: false,
-                  keepAll: true,
+                  keepAll: false,
                   reportDir: 'reports',
                   reportFiles: '*.html',
                   reportName: "RCov Report"

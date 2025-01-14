@@ -50,7 +50,7 @@ agent any
     }
     stage('Execute tests') {
       steps {
-         {
+
 
                 script{
                     if("${params.TestNGsuiteXmlFile}".toString().isEmpty()){
@@ -65,8 +65,7 @@ agent any
 
 
                     }
-                }
-
+               
          }
       }
     }

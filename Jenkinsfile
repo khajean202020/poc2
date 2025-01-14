@@ -41,7 +41,7 @@ agent any
            }
     stage('List Java Version') {
       steps {
-      withMaven(maven : 'apache-maven-3.6.1') {
+      withMaven(maven : 'apache-maven-3.6.3') {
         bat "java -version"
       }
       }
@@ -51,7 +51,7 @@ agent any
 
 
                 script{
-                 withMaven(maven : 'apache-maven-3.6.1') {
+                 withMaven(maven : 'apache-maven-3.6.3') {
                     if("${params.TestNGsuiteXmlFile}".toString().isEmpty()){
                         echo " test suite value not selected from dropdown list.. No test cases executed !!! "
                     }

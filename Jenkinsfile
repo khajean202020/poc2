@@ -118,7 +118,7 @@ pipeline {
     timestamps()
   }
   tools {
-   
+
   }
   agent {
     label 'jdk-17'
@@ -218,13 +218,5 @@ pipeline {
       }
     }
   }
- post {
-        always {
-            echo "Looking for results at: ${env.WORKSPACE}/${projectTestBuildDir}/allure-results"
-            echo "Service Name : "+params.get('ServiceName')
-            script {
-                allure commandline: 'Allure-2.14', jdk: "${JDK}", reportBuildPolicy: 'ALWAYS', results: [[path: "${projectTestBuildDir}/allure-results"]]
-            }
-        }
-    }
+ 
 }

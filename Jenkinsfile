@@ -26,11 +26,7 @@ agent any
 
 
   stages {
-    stage('Init') {
-        steps {
-        sh 'set +x ;[ ! -f ./mvnw ] && { echo "Maven Wrapper not found!"; exit 1; } || [ ! -x ./mvnw ] && chmod +x ./mvnw ; exit 0'
-              }
-    }
+
      stage('Check Build Parameter Values') {
                steps {
                script{
@@ -45,7 +41,9 @@ agent any
            }
     stage('List Java Version') {
       steps {
-        sh "java -version"
+      withMaven(maven : 'apache-maven-3.6.1') {
+        bat "java -version"
+      }
       }
     }
     stage('Execute tests') {
@@ -53,6 +51,7 @@ agent any
 
 
                 script{
+                 withMaven(maven : 'apache-maven-3.6.1') {
                     if("${params.TestNGsuiteXmlFile}".toString().isEmpty()){
                         echo " test suite value not selected from dropdown list.. No test cases executed !!! "
                     }
@@ -61,11 +60,12 @@ agent any
                         echo "Test execution started"
 
 
-                        sh "./mvnw clean test -DsuiteXmlFile=${params.TestNGsuiteXmlFile}"
+                        bat "./mvnw clean test -DsuiteXmlFile=${params.TestNGsuiteXmlFile}"
 
 
                     }
-               
+                    }
+
          }
       }
     }

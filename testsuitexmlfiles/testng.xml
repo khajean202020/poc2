@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
+    <listeners>
+        <listener class-name="ExtentReporter" />
+    </listeners>
+
     <test verbose="2" preserve-order="true" name="C:/EI_REPO/JENKINS_POC/src/test/java/TestBase.java">
+        <parameter name="os" value="windows"/>
+        <parameter name="browser" value="chrome"/>
+
         <classes>
             <class name="TestBase"></class>
         </classes>

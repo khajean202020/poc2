@@ -73,10 +73,13 @@ agent any
 
 post {
         always {
+            script {
+            System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")
+            }
             publishHTML (target: [
                   allowMissing: false,
                   alwaysLinkToLastBuild: false,
-                  keepAll: false,
+                  keepAll: true,
                   reportDir: 'reports',
                   reportFiles: '*.html',
                   reportName: "RCov Report"

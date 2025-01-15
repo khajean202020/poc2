@@ -73,9 +73,7 @@ agent any
 
 post {
         always {
-            script {
-            System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")
-            }
+            
             publishHTML (target: [
                   allowMissing: false,
                   alwaysLinkToLastBuild: false,

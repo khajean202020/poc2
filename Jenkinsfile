@@ -26,6 +26,9 @@ agent any
 
 
   stages {
+  stage('clean workspace'){
+   cleanWs()
+  }
 
      stage('Check Build Parameter Values') {
                steps {
